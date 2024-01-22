@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/20 22:46:50 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/01/20 23:26:22 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int parssing(std::string str)
     int f_count = 0;
     int pointes = 0;
     int min     = 0;
+    int str_size= static_cast<int>(str.size());
     
     for (int i = 0; i < 6; i++)
         if (str == array[i])
@@ -83,7 +84,7 @@ int parssing(std::string str)
     delete[] array;
 
     if ((str.size() == 1) && (str[0] >= 32 && str[0] <= 127)) return (1);
-    for (int i = 0; i < str.size(); i++)
+    for (int i = 0; i < str_size; i++)
     {
         (str[i] == 'f') && (f_count++);
         (str[i] == '.') && (pointes++);
@@ -106,7 +107,15 @@ void ScalarConverter::convert(std::string name)
     {
         Cast << name;
         sval = Cast.str();
-        Cas = std::stold(sval);
+        try
+        {
+            Cas = std::stold(sval);
+        }
+        catch(std::exception& e)
+        {
+            std::cout << "no conversion were made" << std::endl;
+            return;
+        }
         //std::istringstream(sval) >> Cas;
         toChar(Cas);
         toInt(Cas);
