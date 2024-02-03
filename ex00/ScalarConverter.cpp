@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/20 23:26:22 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/03 16:01:22 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,14 @@ void    toFloat(long double num)
 {
     std::cout << "Float: ";
     if (num >= (std::numeric_limits<float>::lowest()) && num <= (3.40282347 * std::pow(10, 38)))
-        std::cout << static_cast<float>(num) << std::endl;
+        {
+            std::cout << static_cast<float>(num);
+            if (std::floor(num) == num)
+                std::cout << ".0f";
+            else
+                std::cout << "f";
+            std::cout << std::endl;
+        }
     else if (std::numeric_limits<float>::infinity() == num || -std::numeric_limits<float>::infinity() == num)
         std::cout << std::numeric_limits<float>::infinity() * ((num > 0) ? 1 : -1) << "f" << std::endl;
     else if (std::isnan(num))
@@ -51,10 +58,10 @@ void    toFloat(long double num)
         std::cout << "impossible" << std::endl;
 }
 
-void    toDouble(long double num)
+
+void    printImpossible()
 {
-    std::cout << "Double: ";
-    std::cout << num << std::endl;
+    std::cout << "Char: impossible\nInt: impossible\nFloat: impossible\nDouble: impossible" << std:: endl;
 }
 
 std::string* makearray()
@@ -68,6 +75,31 @@ std::string* makearray()
     array[3] = "nanf";
 
     return (array);
+}
+
+bool not_inarray(long double num)
+{
+    std::string *ar = makearray();
+    std::stringstream str;
+    std::string tmp;
+
+    str << num;
+    str >> tmp;
+    for (int i = 0; i < 6 ; i++)
+    {
+        if (str.str() == ar[i])
+            return (0);
+    }
+    return (1);
+}
+
+void    toDouble(long double num)
+{
+    std::cout << "Double: ";
+    std::cout << num;
+    if (std::floor(num) == num && not_inarray(num))
+            std::cout << ".0";
+    std::cout << std::endl;
 }
 
 int parssing(std::string str)
@@ -86,7 +118,12 @@ int parssing(std::string str)
     if ((str.size() == 1) && (str[0] >= 32 && str[0] <= 127)) return (1);
     for (int i = 0; i < str_size; i++)
     {
-        (str[i] == 'f') && (f_count++);
+        if (str[i] == 'f')
+        {
+            if (i + 1 < str_size)
+                return (0);
+            f_count++;
+        }
         (str[i] == '.') && (pointes++);
         (str[i] == '-') && (min++);
         if ((!(str[i] >= 48 && str[i] <= 57) && str[i] != '.' && str[i] != 'f' && str[0] != '-') || f_count > 1 || pointes > 1 || min > 1)
@@ -94,6 +131,14 @@ int parssing(std::string str)
             
     }
     return (1);
+}
+
+void    printThem(long double num)
+{
+    toChar(num);
+    toInt(num);
+    toFloat(num);
+    toDouble(num);
 }
 
 void ScalarConverter::convert(std::string name)
@@ -107,21 +152,22 @@ void ScalarConverter::convert(std::string name)
     {
         Cast << name;
         sval = Cast.str();
-        try
-        {
-            Cas = std::stold(sval);
+        if ((sval.size() == 1) && (sval[0] >= 32 && sval[0] <= 127) && !(sval[0] >= '0' && sval[0] <= '9'))
+            printThem(sval[0]);
+        else{
+            try{
+                Cas = std::stod(sval);
+                printThem(Cas);
+            }
+            catch(std::exception& e)
+            {
+                (void)e;
+                printImpossible();
+            }
         }
-        catch(std::exception& e)
-        {
-            std::cout << "no conversion were made" << std::endl;
-            return;
-        }
-        //std::istringstream(sval) >> Cas;
-        toChar(Cas);
-        toInt(Cas);
-        toFloat(Cas);
-        toDouble(Cas);
     }
+    else
+        printImpossible();
 }
 
 ScalarConverter::ScalarConverter(std::string name)
@@ -129,4 +175,15 @@ ScalarConverter::ScalarConverter(std::string name)
     convert(name);
 }
 
+ScalarConverter::ScalarConverter(const ScalarConverter& Copy)
+{
+    *this = Copy;
+};
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& Copy)
+{
+    (void)Copy;
+    return (*this);
+};
+        
 ScalarConverter::~ScalarConverter(){}
