@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 01:55:38 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/22 20:44:16 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/03 16:06:38 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int main(int ac, char **av)
 {
     if (ac == 2)
-        ScalarConverter hello(av[1]);
+        ScalarConverter::convert(av[1]);
 }

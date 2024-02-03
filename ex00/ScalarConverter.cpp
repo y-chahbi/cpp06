@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/03 16:01:22 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/03 16:06:22 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,11 +168,6 @@ void ScalarConverter::convert(std::string name)
     }
     else
         printImpossible();
-}
-
-ScalarConverter::ScalarConverter(std::string name)
-{
-    convert(name);
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& Copy)

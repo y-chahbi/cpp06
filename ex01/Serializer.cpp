@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:28:55 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/26 05:04:17 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/03 16:29:15 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ Serializer::Serializer(const Serializer& Copy)
 
 Serializer& Serializer::operator=(const Serializer& Copy)
 {
+    (void)Copy;
     return (*this);
 };

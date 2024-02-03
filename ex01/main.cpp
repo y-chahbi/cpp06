@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:28:58 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/21 18:20:05 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/03 16:37:30 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,11 @@ int main()
     Data_uns = Serializer::serialize(hello);
     test     = Serializer::deserialize(Data_uns);
     
-    std::cout << hello->a << std::endl << test->a << std::endl;
+    std::cout << "-----------------" << std::endl;
+    std::cout << "|  Original " << hello->a <<"   |"
+    << std::endl << "|  New      "<< test->a <<"   |" << std::endl;
+    std::cout << "-----------------" << std::endl;
+    std::cout << "|  Original " << hello->b <<"   |"
+    << std::endl << "|  New      "<< test->b <<"   |" << std::endl;
+    std::cout << "-----------------" << std::endl;
 }
