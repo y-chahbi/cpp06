@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   B.cpp                                              :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 08:34:49 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/04 10:49:00 by ychahbi          ###   ########.fr       */
+/*   Created: 2024/02/04 10:27:04 by ychahbi           #+#    #+#             */
+/*   Updated: 2024/02/04 10:31:36 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "B.hpp"
+#ifndef DATA_HPP
+#define DATA_HPP
 
-void B::helloB()
+
+typedef struct Data
 {
-    std::cout << "YOO it's B!" << std::endl;
-}
+    int a;
+    int b;
+}           Data;
+
+#endif

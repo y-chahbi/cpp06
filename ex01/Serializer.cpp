@@ -6,12 +6,11 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:28:55 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/03 16:29:15 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/04 10:29:41 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
 
 uintptr_t   Serializer::serialize(Data* ptr)
 {

@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:28:54 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/26 05:03:01 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/04 10:29:43 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
-
-typedef struct Data
-{
-    int a;
-    int b;
-}           Data;
+#include "Data.hpp"
 
 
 class Serializer

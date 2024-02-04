@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/03 16:06:22 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/04 10:20:25 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ ScalarConverter::ScalarConverter()
 void    toChar(long double num)
 {
     std::cout << "Char: ";
-    if (num >= -128 && num <= 127)
+    if (num >= 0 && num <= 127)
     {
-        (num >= 32 && num <= 127) && (std::cout << (char)num << std::endl);
-        (num < 32 || num > 127) && (std::cout << "Non displayable"<< std::endl);
+        (num >= 32 && num <= 127) && (std::cout << '"'<< (char)num << '"' << std::endl);
+        (num < 32 && num >= 0) && (std::cout << "Non displayable"<< std::endl);
     }
     else
         std::cout << "impossible" << std::endl;

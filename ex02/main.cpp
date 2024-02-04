@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:35:14 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/03 17:55:09 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/04 10:50:51 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,44 +42,48 @@ void identify(Base* p)
         std::cout << "Non of the above" << std::endl;
 };
 
-void Bf(Base &p)
+bool Bf(Base &p)
 {
     try {
         B& test = dynamic_cast<B&>(p);
-        std::cout << "YOO it's B! ";
         test.helloB();
+        return (true);
     } catch (std::bad_cast &e) {
         (void)e;
     }
+    return false;
 }
 
-void Cf(Base &p)
+bool Cf(Base &p)
 {
     try {
         C& test = dynamic_cast<C&>(p);
-        std::cout << "YOO it's C! ";
         test.helloC();
+        return (true);
     } catch (std::bad_cast &e) {
         (void)e;
     }
+    return false;
 }
 
-void Af(Base &p)
+bool Af(Base &p)
 {
     try {
         A& test = dynamic_cast<A&>(p);
-        std::cout << "YOO it's A! ";
         test.helloA();
+        return (true);
     } catch (std::bad_cast &e) {
         (void)e;
     }
+    return (0);
 }
 
 void identify(Base& p)
 {
-    Af(p);
-    Bf(p);
-    Cf(p);
+    bool    ent = 0;
+    (ent == 0) && (ent = Af(p));
+    (ent == 0) && (ent = Bf(p));
+    (ent == 0) && (ent = Cf(p));
 };
 
 
@@ -89,6 +93,6 @@ int main()
     ObjPtr = generate();
     
     identify(ObjPtr);
-    //identify(*ObjPtr);
+    identify(*ObjPtr);
     return (0);
 }

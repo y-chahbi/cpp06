@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:34:22 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/22 09:53:31 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/04 10:49:12 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void C::helloC()
 {
-    std::cout << "Hello Mr C" << std::endl;
+    std::cout << "YOO it's C!" << std::endl;
 }
