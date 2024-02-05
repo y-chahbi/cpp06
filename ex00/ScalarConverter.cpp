@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/04 10:20:25 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/05 15:07:22 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ int parssing(std::string str)
         (str[i] == '-') && (min++);
         if ((!(str[i] >= 48 && str[i] <= 57) && str[i] != '.' && str[i] != 'f' && str[0] != '-') || f_count > 1 || pointes > 1 || min > 1)
             return (0);
-            
     }
     return (1);
 }
