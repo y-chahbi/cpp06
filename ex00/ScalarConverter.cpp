@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 02:00:05 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/05 15:07:22 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:38:07 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,20 @@ void    printImpossible()
 
 std::string* makearray()
 {
-    std::string *array = new std::string[6];
+    std::string *array = new std::string[8];
     array[0] = "+inf";
-    array[4] = "-inf";
+    array[6] = "inf";
     array[1] = "-inff";
-    array[5] = "+inff";
     array[2] = "nan";
     array[3] = "nanf";
+    array[4] = "-inf";
+    array[5] = "+inff";
+    array[7] = "inff";
 
     return (array);
 }
 
-bool not_inarray(long double num)
+bool inarray(long double num)
 {
     std::string *ar = makearray();
     std::stringstream str;
@@ -85,20 +87,21 @@ bool not_inarray(long double num)
 
     str << num;
     str >> tmp;
-    for (int i = 0; i < 6 ; i++)
+    for (int i = 0; i < 8 ; i++)
     {
         if (str.str() == ar[i])
-            return (0);
+            return (false);
     }
-    return (1);
+    return (true);
 }
 
 void    toDouble(long double num)
 {
     std::cout << "Double: ";
     std::cout << num;
-    if (std::floor(num) == num && not_inarray(num))
+    if (std::floor(num) == num && inarray(num))
             std::cout << ".0";
+    //else if (std::floor(num) == num)
     std::cout << std::endl;
 }
 
