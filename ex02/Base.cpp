@@ -6,11 +6,11 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:35:04 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/01/22 09:26:12 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:21:40 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-Base::~Base(){std::cout << "Base destructor Called" << std::endl;}
+Base::~Base(){}
 

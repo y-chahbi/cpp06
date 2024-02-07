@@ -6,7 +6,7 @@
 /*   By: ychahbi <ychahbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:35:14 by ychahbi           #+#    #+#             */
-/*   Updated: 2024/02/04 10:50:51 by ychahbi          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:22:10 by ychahbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ int main()
     
     identify(ObjPtr);
     identify(*ObjPtr);
+    delete ObjPtr;
     return (0);
 }
